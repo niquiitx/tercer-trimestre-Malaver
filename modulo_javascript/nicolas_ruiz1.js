@@ -60,14 +60,14 @@ const cargarTabla = () => {
 
 // DELETE
 window.BorrarGift = (id) => {
-  const index = yeison_moreno1.findIndex((item) => item.id === id);
+  const index = nicolas_ruiz1.findIndex((item) => item.id === id);
   if (index === -1) return;
-  const validar = confirm(`¿Está seguro que quiere eliminar la gift Card ${yeison_moreno1[index].gift}?`);
+  const validar = confirm(`¿Está seguro que quiere eliminar la gift Card ${nicolas_ruiz1[index].gift}?`);
   if (validar) {
     nicolas_ruiz1.splice(index, 1);
     cargarTabla();
     // persistir en localStorage opcional
-    localStorage.setItem('misGifts', JSON.stringify(yeison_moreno1));
+    localStorage.setItem('misGifts', JSON.stringify(nicolas_ruiz1));
   }
 };
 
