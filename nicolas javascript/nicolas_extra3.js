@@ -1,0 +1,10 @@
+let var1 = true;
+let var2 =["nicolas_ruiz","DAVID","MORENO NIETO"];
+let var3 = 45;
+let var4= 7.4;
+let var5= "nicolas ruiz";
+console.log("esto es un:",typeof var1);
+console.log("esto es un:",typeof var2);
+console.log("esto es un:",typeof var3);
+console.log("esto es un:",typeof var4);
+console.log("esto es un:",typeof var5);
