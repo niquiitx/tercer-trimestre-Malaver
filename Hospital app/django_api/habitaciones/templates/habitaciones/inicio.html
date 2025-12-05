@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Habitaciones</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #007bff;
+            color: white;
+        }
+        tr:hover {
+            background: #f1f1f1;
+        }
+        .btn {
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+        .btn-add {
+            background: #007bff;
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+        }
+        .btn-edit {
+            background: #28a745;
+        }
+        .btn-delete {
+            background: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Listado de Habitaciones</h2>
+
+<a href="{% url 'crear_habitacion' %}" class="btn btn-add">Agregar Nueva Habitación</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for habitacion in habitaciones %}
+        <tr>
+            <td>{{ habitacion.id }}</td>
+            <td>{{ habitacion.numero }}</td>
+            <td>{{ habitacion.tipo }}</td>
+            <td>{{ habitacion.estado }}</td>
+
+            <td>
+                <a href="{% url 'editar_habitacion' habitacion.id %}" class="btn btn-edit">Editar</a>
+                <a href="{% url 'eliminar_habitacion' habitacion.id %}" class="btn btn-delete">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No hay habitaciones registradas.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
